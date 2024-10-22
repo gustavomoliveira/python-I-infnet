@@ -4,9 +4,11 @@
 
 def verificar_idade(idade):
     if idade >= 18:
-        print(f'Você tem {idade} anos e é maior de idade.')
+        return f'Você tem {idade} anos e é maior de idade.'
     else:
-        print(f'Você tem {idade} anos e é menor de idade.')
+        return f'Você tem {idade} anos e é menor de idade.'
 
 idade = int(input('Qual a sua idade? '))
-verificar_idade(idade)
+
+resultado = verificar_idade(idade)
+print(resultado)
