@@ -7,8 +7,8 @@ def saudacao(nome, sobrenome):
     nome_completo = nome + ' ' + sobrenome
     print(f'Olá, {nome_completo}!')
 
-nome = str(input('Digite seu nome: ')).title()
-sobrenome = str(input('Digite seu sobrenome: ')).title()
+nome = input('Digite seu nome: ').title()
+sobrenome = input('Digite seu sobrenome: ').title()
 saudacao(nome, sobrenome)
 
 
