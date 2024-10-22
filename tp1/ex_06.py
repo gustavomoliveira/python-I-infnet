@@ -18,9 +18,10 @@ def resultado_palpite(palpite, numero):
 # importando o módulo random para gerar um número aleatório entre um período determinado
 import random
 
-numero = random.randint(1, 10)
+# como exemplo do exercício, ajustei o range numérico dessa forma
+numero = random.randint(1, 50)
 
-palpite = int(input('Chute um número entre 1 e 10: '))
+palpite = int(input('Chute um número entre 1 e 50: '))
 
 resultado_palpite(palpite, numero)
 
