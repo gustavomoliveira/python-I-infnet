@@ -3,6 +3,19 @@
 em seguida, calcule e exiba a soma, subtração, multiplicação, divisão e divisão inteira desses números.
 """
 
+def valida_input(texto):
+    while True:
+        try:
+            numero = float(input(texto))
+            return numero
+        except ValueError:
+            print('Erro: digite um número válido.')
+
+def pede_input():
+    num_1 = valida_input('Digite o primeiro número: ')
+    num_2 = valida_input('Digite o segundo número: ')
+    return num_1, num_2
+
 def soma(num_1, num_2):
     resultado = num_1 + num_2
     return f'Resultado da soma é {resultado}'
@@ -29,8 +42,7 @@ def divisao_inteira(num_1, num_2):
     else:
         return 'Erro: divisão por 0.'
 
-num_1 = float(input('Digite o primeiro número: '))
-num_2 = float(input('Digite o segundo número: '))
+num_1, num_2 = pede_input()
 
 resultado_soma = soma(num_1, num_2)
 print(resultado_soma)
