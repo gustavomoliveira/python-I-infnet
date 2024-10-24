@@ -3,6 +3,14 @@
 e forneça feedback com base no valor (por exemplo, abaixo do peso, peso normal, sobrepeso).
  """
 
+def valida_input(texto):
+    while True:
+        try:
+            numero = float(input(texto))
+            return numero
+        except ValueError:
+            print('Erro: Digite um número válido.')
+
 def resultado_imc(peso, altura):
     imc = peso / (altura * altura)
     if imc < 18.5:
@@ -18,7 +26,6 @@ def resultado_imc(peso, altura):
     else:
         print(f'O seu IMC é {imc:.1f}. Cuidado: o resultado indica Obesidade Grau III!')
 
-
-peso = float(input('Digite o seu peso: '))
-altura = float(input('Digite a sua altura: '))
+peso = valida_input('Digite o seu peso: ')
+altura = valida_input('Digite a sua altura: ')
 resultado_imc(peso, altura)

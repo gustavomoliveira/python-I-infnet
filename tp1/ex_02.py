@@ -11,23 +11,17 @@ def valida_input(texto):
         except ValueError:
             print('Erro: digite um número válido.')
 
-def pede_input():
-    numero_fornecido = valida_input('Digite um número inteiro: ')
-    return numero_fornecido
-
-
 def converte_em_horas(num):
     horas =  num // 60
     minutos = num % 60
     f'{horas}:{minutos:02d}hrs.'
     return horas, minutos, f'{horas}:{minutos:02d}hrs.'
 
-
 def converte_em_minutos(horas, minutos):
     minutos_totais = (horas * 60) + minutos
     return minutos_totais
 
-numero_fornecido = pede_input()
+numero_fornecido = valida_input('Digite um número inteiro: ')
 
 horas, minutos, mensagem = converte_em_horas(numero_fornecido)
 print(mensagem)

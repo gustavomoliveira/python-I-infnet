@@ -3,12 +3,21 @@
 inserida pelo usuário é um palíndromo (lê-se igual de trás para frente).
  """
 
-def confere_palindromo(palavra):
-    if palavra == palavra[::-1]:
-        print(f'A palavra "{palavra}" é palíndromo!')
+def valida_texto(texto):
+    while True:
+        palavra = input(texto)
+        if all(caractere.isalpha() for caractere in palavra.split()):
+            return palavra
+        else:
+            print('Erro: Digite apenas letras/caracteres: ')
+
+def confere_palindromo(texto):
+    if texto == texto[::-1]:
+        return f'A palavra "{texto}" é palíndromo!'
     else:
-        print(f'A palavra "{palavra}" NÃO é palíndromo.')
+        return f'A palavra "{texto}" NÃO é palíndromo.'
 
 
-palavra = str(input('Digite uma palavra qualquer: ').lower())
-confere_palindromo(palavra)
+texto = valida_texto('Digite uma palavra ou frase qualquer: ').lower()
+eh_palindromo = confere_palindromo(texto)
+print(eh_palindromo)

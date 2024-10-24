@@ -11,11 +11,6 @@ def valida_input(texto):
         except ValueError:
             print('Erro: digite um número válido.')
 
-def pede_input():
-    num_1 = valida_input('Digite o primeiro número: ')
-    num_2 = valida_input('Digite o segundo número: ')
-    return num_1, num_2
-
 def soma(num_1, num_2):
     resultado = num_1 + num_2
     return f'Resultado da soma é {resultado}'
@@ -42,7 +37,8 @@ def divisao_inteira(num_1, num_2):
     else:
         return 'Erro: divisão por 0.'
 
-num_1, num_2 = pede_input()
+num_1 = valida_input('Digite o primeiro número: ')
+num_2 = valida_input('Digite o segundo número: ')
 
 resultado_soma = soma(num_1, num_2)
 print(resultado_soma)

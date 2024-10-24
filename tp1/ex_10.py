@@ -4,7 +4,8 @@
  """
 
 def combina_listas(personagens, acoes, locais):
-    index_personagens = random.randint(0, len(personagens) -1) # garante random index independente do tamanho das listas
+    # garante random index independente do tamanho das listas
+    index_personagens = random.randint(0, len(personagens) -1)
     index_acoes = random.randint(0, len(acoes) -1)
     index_locais = random.randint(0, len(locais) -1)
     

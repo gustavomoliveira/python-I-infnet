@@ -3,6 +3,15 @@
 desconto de 10% para compras acima de R$100, 15% para compras acima de R$200,
 seguindo a projeção até R$500, para valores maiores do que esse, o desconto é fixado em 25%.
  """
+
+def valida_input(texto):
+    while True:
+        try:
+            numero = float(input(texto))
+            return numero
+        except ValueError:
+            print('Erro: Digite um número válido.')
+
 def calculo_desconto(compra):
     if compra < 100:
         print(f'Sem desconto! Valor total a pagar é de R${compra:.2f}')
@@ -22,6 +31,5 @@ def calculo_desconto(compra):
         result = compra * 0.75
         print(f'Você ganhou 25% de desconto! Valor total a pagar é de R${result:.2f}.')
 
-
-compra = float(input('Digite o valor da sua compra: '))
+compra = valida_input('Digite o valor da sua compra: ')
 calculo_desconto(compra)
