@@ -12,6 +12,7 @@ def validar_numeros(txt):
             numero = int(input(txt))
             if numero == 0:
                 print('Calculando fatoriais...')
+                print()
                 return numeros
             elif numero > 0:
                 numeros.append(numero)
@@ -22,11 +23,14 @@ def validar_numeros(txt):
 
 def calcular_fatorial(numero):
     resultado = 1
-    for num in range(1, numero + 1): # +1 para incluir o número
+    for num in range(1, numero + 1):
         resultado *= num
     return resultado
 
+def exibir_fatorial(numeros):
+    for numero in numeros:
+        resultado = calcular_fatorial(numero)
+        print(f'O fatorial de {numero} é {resultado}')
+
 numeros = validar_numeros('Digite um número: ')
-for numero in numeros:
-    resultado = calcular_fatorial(numero)
-    print(f'O fatorial de {numero} é {resultado}')
+exibir_fatorial(numeros)

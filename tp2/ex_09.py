@@ -29,7 +29,6 @@ def ler_numeros(sequencia):
 def exibir_lista_invertida(sequencia):
     print(f'Sequência de números invertida: {sequencia[::-1]}')
     
-
 sequencia = validar_sequencia('Digite um número: ')
 ler_numeros(sequencia)
 exibir_lista_invertida(sequencia)

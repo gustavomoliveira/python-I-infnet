@@ -22,4 +22,4 @@ def somar_listas(lista1, lista2):
 lista1 = [1, 2, 3, 4, 5, 6, 7, 8]
 lista2 = [10, 20, 30, 40, 50, 60, 70, 80]
 lista3 = somar_listas(lista1, lista2)
-print(f'Terceira lista: {lista3}')
+print(f'Terceira lista --> {lista3}')

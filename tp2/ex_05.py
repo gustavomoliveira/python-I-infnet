@@ -14,16 +14,16 @@ def validar_input(txt):
         except ValueError:
             print('Digite um número válido.')
 
-def calcular_pa(num1, num2, size):
+def calcular_pa(num1, num2, tamanho):
     pa = []
     const = num2 - num1
-    for n in range(1, size + 1):
+    for n in range(1, tamanho + 1):
         prox_num = num1 + (n - 1) * const
         pa.append(prox_num)
     return pa
 
 num1 = validar_input('Digite o primeiro número: ')
 num2 = validar_input('Digite o segundo número: ')
-size = validar_input('Digite o tamanho total que a PA deve ter: ')
-pa = calcular_pa(num1, num2, size)
+tamanho = validar_input('Digite o tamanho total que a PA deve ter: ')
+pa = calcular_pa(num1, num2, tamanho)
 print(f'Progressão Aritmética: {pa}')

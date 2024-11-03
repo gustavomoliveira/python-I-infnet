@@ -7,8 +7,6 @@ O programa também deve mostrar a quantidade de números primos encontrados.
 Implemente uma função para verificar se um número é primo.
 """
 
-# números primos: maior do que 1 e / por 1 e ele mesmo
-
 def validar_numeros(txt):
     while True:
         try:
@@ -31,21 +29,22 @@ def verificar_primo(num):
             return False
     return True
 
+def exibir_primo(nums):
+    nums_primos = []
+    for num in nums_intervalo:
+        if verificar_primo(num):
+            nums_primos.append(num)
+
+    print(f""" 
+    ---------------VERIFICAÇÃO-----------------
+
+    Números primos encontrados: {nums_primos}.
+    Um total de: {len(nums_primos)} números.
+
+    -------------------------------------------
+    """)
+
 num_min = validar_numeros('Digite um número para representar um intervalo inferior: ')
 num_max = validar_numeros('Digite um número para representar um intervalo superior: ')
 nums_intervalo = gerar_intervalo(num_min, num_max)
-nums_primos = []
-
-# passa um número por vez do intervalo digitado e, caso primo, é adicionado a lista de números primos.
-for num in nums_intervalo:
-    if verificar_primo(num):
-        nums_primos.append(num)
-
-print(f""" 
----------------VERIFICAÇÃO-----------------
-
-Números primos encontrados: {nums_primos}.
-Um total de: {len(nums_primos)} números.
-
--------------------------------------------
-""")
+exibir_primo(nums_intervalo)
