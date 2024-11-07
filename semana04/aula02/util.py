@@ -1,10 +1,22 @@
+""" Funções auxiliares """
+
 # CRUD -> Create, Read, Update, Delete
 
 # gerenciar ID, Nome, Saldo
 
+
+def entrar_inteiro(txt):
+    while True:
+        try:
+            num = int(input(txt))
+            break
+        except:
+            print('ERRO: Valor inválido.')
+    return num
+
 def entrar_id():
     while True:
-        id = int(input('Entre com o ID da conta: '))
+        id = entrar_inteiro('Entre com o ID da conta: ')
         if id <= 0:
             print('ERRO: ID inválido.')
         else:
