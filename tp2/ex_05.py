@@ -1,10 +1,3 @@
-"""
-5 - Progressão Aritmética
-Uma progressão aritmética (PA) é uma sequência numérica onde cada termo,
-a partir do segundo, é igual à soma do termo anterior com uma constante.
-A constante é a diferença entre o segundo e o primeiro número.
-Faça um programa que receba dois números inteiros e, a partir dessa informação, gere uma sequência em PA.
-"""
 
 def validar_input(txt):
     while True:

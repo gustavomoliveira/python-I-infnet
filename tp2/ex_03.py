@@ -1,9 +1,3 @@
-"""
-3- Fatorial de Números Positivos
-Faça um programa que leia uma sequência de números inteiros positivos,
-terminada por zero. Para cada número lido, mostre seu fatorial.
-Implemente uma função para o cálculo do fatorial.
-"""
 
 def validar_numeros(txt):
     numeros = []
@@ -32,5 +26,5 @@ def exibir_fatorial(numeros):
         resultado = calcular_fatorial(numero)
         print(f'O fatorial de {numero} é {resultado}')
 
-numeros = validar_numeros('Digite um número: ')
+numeros = validar_numeros('Digite um número inteiro positivo ou 0 para encerrar: ')
 exibir_fatorial(numeros)

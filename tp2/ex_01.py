@@ -1,17 +1,3 @@
-"""
-1 - Contando Vogais
-Faça um programa que leia uma sequência de caracteres terminada por um ponto (.) e mostre o número de vogais digitadas.
-Cada caractere deve ser digitado/lido separadamente.
-
-Exemplo:
-Entre com um caractere: a
-Entre com um caractere: @
-Entre com um caractere: x
-Entre com um caractere: 2
-Entre com um caractere: e
-Entre com um caractere: .
-Número de vogais: 2
-"""
 
 def validar_input(txt):
     while True:

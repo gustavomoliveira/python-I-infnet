@@ -1,11 +1,3 @@
-"""
-12 - Estatísticas de uma Lista
-
-Faça um programa que mostre o menor, o maior, a soma e a média dos elementos da lista:
-[10, 2, 30, 4, 50, 6, 70, 8, 9, 1]
-
-Utilize apenas os comandos ensinados em aula.
-"""
 
 def menor_numero(lista):
     menor = min(lista)

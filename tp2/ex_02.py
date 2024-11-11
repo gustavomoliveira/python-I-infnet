@@ -1,9 +1,3 @@
-"""
-2 - Soma e Média de 1 a 100
-Faça um programa que calcule a soma e a média dos números de 1 a 100.
-"""
-
-# Poderia ter sido feito uma fórmula simples de calculo de soma e média sem loop, mas achei legal jogar tudo para uma lista para praticar.
 
 def calcular_soma_e_media():   
     min = 0

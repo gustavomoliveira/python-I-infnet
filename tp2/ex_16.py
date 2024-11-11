@@ -1,7 +1,3 @@
-"""
-16 - A partir do programa anterior (Cálculo de Médias de Alunos),
-utilize DocStrings para documentar seu código.
-"""
 
 def validar_nome(txt):
     """

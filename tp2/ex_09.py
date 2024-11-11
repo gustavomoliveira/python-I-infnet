@@ -1,12 +1,3 @@
-"""
-9 - Números em Ordem Invertida
-
-Faça um programa que leia uma sequência de números,
-terminada pelo número zero, e mostre-os na ordem invertida.
-
-Implemente uma função para ler a lista de números e outra para exibir a lista invertida.
-Utilize apenas os comandos ensinados em aula.
-"""
 
 def validar_sequencia(txt):
     sequencia = []
@@ -14,12 +5,12 @@ def validar_sequencia(txt):
         try:
             numero = int(input(txt))
             if numero == 0:
-                print('A sequência de números inseridos está encerrada.')
+                print('\nA sequência de números inseridos está encerrada.')
                 break
             else:
                 sequencia.append(numero)
         except ValueError:
-            print('ERRO: Digite um número válido.')
+            print('\nERRO: Digite um número válido.\n')
     return sequencia
                 
 def ler_numeros(sequencia):
@@ -27,8 +18,8 @@ def ler_numeros(sequencia):
         print(numero, end=" ")
 
 def exibir_lista_invertida(sequencia):
-    print(f'Sequência de números invertida: {sequencia[::-1]}')
+    print(f'\n\nSequência de números invertida: {sequencia[::-1]}\n')
     
-sequencia = validar_sequencia('Digite um número: ')
+sequencia = validar_sequencia('Digite um número ou 0 para encerrar: ')
 ler_numeros(sequencia)
 exibir_lista_invertida(sequencia)

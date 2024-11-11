@@ -1,7 +1,3 @@
-"""
-4 - Tabuada de 1 a 10
-Faça um programa que mostre a tabuada dos números de 1 a 10.
-"""
 
 def calcular_tabuada(numero):
     resultado = 0
