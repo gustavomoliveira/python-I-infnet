@@ -25,5 +25,5 @@ def fatiar_frase():
     return cinco_primeiros, cinco_ultimos
 
 cinco_primeiros, cinco_ultimos = fatiar_frase()
-print(f'Cinco primeiros caracteres: {cinco_primeiros}')
-print(f'Cinco últimos caracteres: {cinco_ultimos}')
+print(f'\nCinco primeiros caracteres: {cinco_primeiros}')
+print(f'\nCinco últimos caracteres: {cinco_ultimos}\n')
