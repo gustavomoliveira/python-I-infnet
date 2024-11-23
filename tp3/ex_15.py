@@ -7,8 +7,10 @@ Exemplo: Entrada: 1;Maria;1000
 Saída: 1,Maria,1000
 """
 
-entrada = '1;Maria;1000'
+def substituir():
+    entrada = '1;Maria;1000'
+    com_virgula = entrada.replace(';', ',')
+    return com_virgula
 
-com_virgula = entrada.replace(';', ',')
-
+com_virgula = substituir()
 print(com_virgula)
