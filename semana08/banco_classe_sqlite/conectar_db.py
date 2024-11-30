@@ -6,11 +6,13 @@ BANCO = '/Users/gustavo/Desktop/Infnet/Python I/semana08/banco_classe_sqlite/ban
 def conectar():
     try:
         conn = sqlite3.connect(BANCO)
-        print('Banco conectado')
     except Exception as ex:
         print(ex)
     return conn
 
 # by default retorna para cada registro do bd uma tupla
 
+def desconectar(conn):
+    if conn:
+        conn.close()
 

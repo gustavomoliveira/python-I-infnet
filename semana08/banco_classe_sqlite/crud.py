@@ -12,32 +12,27 @@ def consultar_contas():
     for conta in contas:
         print(conta) # sem []
 
-def consultar_conta(contas):
+def consultar_conta():
     id = entrar_id()
-    conta = procurar_conta(contas, id)
+    conta = consultar_conta_db(id)
     if not conta:
         print('ERRO: Conta não existe')
         return
     print(conta)
 
-def incluir_conta(contas): # como o parâmetro é uma lista, a passagem é por referência, ou seja, não é necessário retornar o valor.
-    id = entrar_id()
-    conta = procurar_conta(contas, id)
-    if (conta): # o mesmo que --> conta != []
-        print('ERRO: Conta já existe.')
-        return
+def incluir_conta():
     nome = entrar_nome()
     saldo = entrar_saldo()
-    incluir_conta = Conta(id, nome, saldo)
-    contas.append(incluir_conta)
+    conta = Conta(None, nome, saldo) # a posição do id está None porque quem gera o id é o próprio banco
+    incluir_conta_db(conta)
 
-def excluir_conta(contas):
+def excluir_conta():
         id = entrar_id()
-        conta = procurar_conta(contas, id)
+        conta = consultar_conta_db(id)
         if not conta:
             print('ERRO: Conta não existe')
             return
-        contas.remove(conta)
+        excluir_conta_db(conta)
 
 def entrar_operacao():
     while True:
@@ -57,9 +52,9 @@ def entrar_valor():
             break
     return valor
 
-def alterar_conta(contas):
+def alterar_conta():
     id = entrar_id()
-    conta = procurar_conta(contas, id)
+    conta = consultar_conta_db(id)
     if not conta:
         print('ERRO: Conta não existe.')
         return
@@ -69,3 +64,4 @@ def alterar_conta(contas):
         conta.creditar(valor)
     else:
         conta.debitar(valor)
+    alterar_conta_db(conta)
