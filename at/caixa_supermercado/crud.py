@@ -2,31 +2,6 @@ from validacoes import *
 from utilitarios import *
 from tabulate import tabulate
 
-def realizar_atendimento(produtos):
-    clientes = []
-    proximo_cliente_id = 1
-
-    while True:
-        opcao = validar_opcao(
-            '===== Caixa Supermercado =====\n\n'
-            f'[1] - Atender Cliente\n'
-            f'[2] - Conferir Estoque\n'
-            f'[0] - Fechar Caixa\n'
-            '\n=============================\n'
-            'Escolha uma opção para iniciar: '
-        )
-
-        match opcao:
-            case 1:
-                proximo_cliente_id = atender_cliente(produtos, clientes, proximo_cliente_id)
-            case 2:
-                conferir_estoque(produtos)
-            case 0:
-                fechar_caixa(clientes)
-                break
-            case _:
-                print('ERRO: Opção inválida.')
-
 def atender_cliente(produtos, clientes, proximo_cliente_id):
     cliente = None
 
@@ -83,7 +58,6 @@ def iniciar_atendimento(produtos, proximo_cliente_id):
         if continuar != 's':
             break
     
-    print(cliente)
     finalizar_atendimento(cliente, proximo_cliente_id)
     return cliente, proximo_cliente_id + 1
 
@@ -111,7 +85,7 @@ def conferir_estoque(produtos):
     print('\nProdutos sem estoque:')
     for produto in produtos:
         if produto[2] == 0:
-            print(f'\n{produto[1]}')
+            print(f'{produto[1]}')
             print()
             sem_estoque = True
 

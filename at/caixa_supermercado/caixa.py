@@ -1,24 +1,31 @@
-import pathlib
 from tabulate import tabulate
 from crud import *
+from arquivo import *
 
-DIR_CUR = pathlib.Path(__file__).parent.resolve()
-ARQ = str(DIR_CUR) + '/produtos.csv'
+def realizar_atendimento(produtos):
+    clientes = []
+    proximo_cliente_id = 1
 
-def ler_produtos():
-    produtos = []
-    try:
-        with(open(ARQ, 'r', encoding='UTF-8') as arquivo):
-            while linha := arquivo.readline():
-                campos = linha.strip('\n').split(',')
-                id, nome, qtde, preco = int(campos[0]), campos[1], int(campos[2]), int(campos[3])
-                produtos.append([id, nome, qtde, preco])
-    except Exception as ex:
-        print(f'ERRO: Não foi possível ler a lista de produtos. Detalhes: {ex}')
-    print(f'\nCaixa aberto. Lista de produtos disponíveis:\n')
-    print(tabulate(produtos, headers=['Id', 'Nome', 'Qtde', 'Preço']))
-    print('--------------------------------\n')
-    return produtos
+    while True:
+        opcao = validar_opcao(
+            '===== Caixa Supermercado =====\n\n'
+            f'[1] - Atender Cliente\n'
+            f'[2] - Conferir Estoque\n'
+            f'[0] - Fechar Caixa\n'
+            '\n=============================\n'
+            'Escolha uma opção para iniciar: '
+        )
+
+        match opcao:
+            case 1:
+                proximo_cliente_id = atender_cliente(produtos, clientes, proximo_cliente_id)
+            case 2:
+                conferir_estoque(produtos)
+            case 0:
+                fechar_caixa(clientes)
+                break
+            case _:
+                print('ERRO: Opção inválida.')
 
 produtos = ler_produtos()
 realizar_atendimento(produtos)
