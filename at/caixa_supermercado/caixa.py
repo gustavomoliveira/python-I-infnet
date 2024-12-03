@@ -41,7 +41,7 @@ def validar_opcao(msg):
 def validar_entrada(msg):
     while True:
         entrada = input(msg).strip().lower()
-        if entrada == 's' or entrada == 'n':
+        if entrada in ('s', 'n'):
             return entrada
         else:
             print('ERRO: Digite "s" para sim e "n" para não.')
@@ -75,7 +75,7 @@ def ler_produtos():
 
 def realizar_atendimento(produtos):
     clientes = []
-    id_cliente = 1
+    proximo_cliente_id = 1
 
     while True:
         opcao = validar_opcao(
@@ -89,7 +89,7 @@ def realizar_atendimento(produtos):
 
         match opcao:
             case 1:
-                id_cliente = atender_cliente(produtos, clientes, id_cliente)
+                proximo_cliente_id = atender_cliente(produtos, clientes, proximo_cliente_id)
             case 2:
                 conferir_estoque(produtos)
             case 0:
@@ -98,7 +98,7 @@ def realizar_atendimento(produtos):
             case _:
                 print('ERRO: Opção inválida.')
 
-def atender_cliente(produtos, clientes, id_cliente):
+def atender_cliente(produtos, clientes, proximo_cliente_id):
     cliente = None
 
     while True:
@@ -113,27 +113,27 @@ def atender_cliente(produtos, clientes, id_cliente):
 
         match opcao:
             case 1:
-                cliente, id_cliente = iniciar_atendimento(produtos, id_cliente)
+                cliente, proximo_cliente_id = iniciar_atendimento(produtos, proximo_cliente_id)
                 clientes.append(cliente)
             case 2:
                 if cliente is None or not cliente:
                     print('\nNão há clientes atendidos. Primeiro inicie um atendimento.')
                 else:
-                    finalizar_atendimento(cliente, id_cliente)
+                    finalizar_atendimento(cliente, proximo_cliente_id)
                     cliente = None
             case 0:
                 print('\nRetornando ao Menu Inicial.\n')
-                return id_cliente
+                return proximo_cliente_id
             case _:
                 print('ERRO: Opção inválida.')
 
-def iniciar_atendimento(produtos, id_cliente):
+def iniciar_atendimento(produtos, proximo_cliente_id):
     cliente = [] # id, nome, qtde, preço, valor total da compra (preço * qtde)
-    print(f'\nIniciando atendimento para o Cliente {id_cliente}')
+    print(f'\nIniciando atendimento para o Cliente {proximo_cliente_id}')
 
     while True:
-        id = validar_id('\nInsira o id do produto a ser adicionado:')
-        qtde = validar_qtde('\nInsira a quantidade desse produto:')
+        id = validar_id('\nInsira o id do produto a ser adicionado: ')
+        qtde = validar_qtde('\nInsira a quantidade desse produto: ')
         
         for produto in produtos:
             if id == produto[0]:
@@ -155,16 +155,23 @@ def iniciar_atendimento(produtos, id_cliente):
             break
     
     print(cliente)
-    finalizar_atendimento(cliente, id_cliente)
-    return cliente, id_cliente + 1
+    finalizar_atendimento(cliente, proximo_cliente_id)
+    return cliente, proximo_cliente_id + 1
 
-def finalizar_atendimento(cliente, id_cliente):
+def finalizar_atendimento(cliente, proximo_cliente_id):
     soma_total = somar_total(cliente)
+    tabela_resumida = []
+    headers = ['Item', 'Produto', 'Qtde', 'Preço', 'Total']
 
-    print(f'\nCliente {id_cliente}\n')
+    print(f'\nCliente {proximo_cliente_id}\n')
     print(f'Data: {data_hora_atual()}\n')
-    #TODO: Item deve ser um numero incrementável e não o item comprado
-    print(tabulate(cliente, headers=['Item', 'Produto', 'Qtde', 'Preço', 'Total']))
+
+    for i, produto in enumerate(cliente, start=1):
+        tabela_resumida.append([
+            i, produto[1], produto[2], produto[3], produto[4]
+        ])
+ 
+    print(tabulate(tabela_resumida, headers=headers))
 
     print(f'\nItens: {len(cliente)}')
     print(f'Total: {soma_total}\n')
@@ -184,15 +191,20 @@ def conferir_estoque(produtos):
 
 def fechar_caixa(clientes):
     print('\n===== Fechamento do Caixa =====\n')
-    print(data_hora_atual())
+    print(f'Data: {data_hora_atual()}\n')
 
     total_de_vendas = 0
-    
+    tabela_resumida = []
+
     for i, cliente in enumerate(clientes, start=1):
-        print(tabulate(cliente[i], {somar_total(cliente)}, headers=['Cliente', 'Total']))
-        total_de_vendas += somar_total(cliente)
+        soma_total = somar_total(cliente)
+        tabela_resumida.append([f'Cliente {i}', soma_total])
+        total_de_vendas += soma_total 
+    
+    print(tabulate(tabela_resumida, headers=['Cliente', 'Total']))
     
     print(f'\n=== Total de Vendas: {total_de_vendas} ===\n')
+
 
 
 produtos = ler_produtos()
