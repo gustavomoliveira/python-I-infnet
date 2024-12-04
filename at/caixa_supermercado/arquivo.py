@@ -18,3 +18,11 @@ def ler_produtos():
     print(tabulate(produtos, headers=['Id', 'Nome', 'Qtde', 'Preço']))
     print('--------------------------------\n')
     return produtos
+
+def gravar_produtos(produtos):
+    try:
+        with(open(ARQ, 'w', encoding='UTF=8') as arquivo):
+            for produto in produtos:
+                arquivo.write(f'{produto[0]},{produto[1]},{produto[2]},{produto[3]}\n')
+    except:
+        print('ERRO: Gravação impossível.')

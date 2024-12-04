@@ -16,9 +16,9 @@ def validar_qtde(msg):
             if qtde > 0:
                 return qtde
             else:
-                print('ERRO: A quantidade inserida deve ser maior que 0.')
+                print('\nERRO: A quantidade inserida deve ser maior que 0.')
         except ValueError:
-            print('ERRO: Digite um número inteiro para a quantidade.')
+            print('\nERRO: Digite um número inteiro para a quantidade.')
 
 def validar_opcao(msg):
     while True:
@@ -27,9 +27,9 @@ def validar_opcao(msg):
             if 0 <= opcao <= 2:
                 return opcao
             else:
-                print('ERRO: Opção inválida. Escolha entre uma das duas opções de atendimento.')
+                print('\nERRO: Opção inválida. Escolha entre uma das duas opções de atendimento.')
         except ValueError:
-            print('ERRO: Digite entre 0 a 2 para selecionar uma opção.')
+            print('\nERRO: Digite entre 0 a 2 para selecionar uma opção.')
 
 def validar_entrada(msg):
     while True:
@@ -37,4 +37,5 @@ def validar_entrada(msg):
         if entrada in ('s', 'n'):
             return entrada
         else:
-            print('ERRO: Digite "s" para sim e "n" para não.')
+            print('\nERRO: Digite "s" para sim e "n" para não.')
+
