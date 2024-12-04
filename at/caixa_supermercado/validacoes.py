@@ -5,9 +5,9 @@ def validar_id(msg):
             if 1 <= id <= 5:
                 return id
             else:
-                print('ERRO: Produto não cadastrado. Escolha um id de 1 a 5.')
+                print('\nERRO: Produto não cadastrado. Escolha um id de 1 a 5.\n')
         except ValueError:
-            print('ERRO: Digite um número inteiro para o id.')
+            print('\nERRO: Digite um número inteiro para o id.\n')
 
 def validar_qtde(msg):
     while True:
@@ -16,9 +16,9 @@ def validar_qtde(msg):
             if qtde > 0:
                 return qtde
             else:
-                print('\nERRO: A quantidade inserida deve ser maior que 0.')
+                print('\nERRO: A quantidade inserida deve ser maior que 0.\n')
         except ValueError:
-            print('\nERRO: Digite um número inteiro para a quantidade.')
+            print('\nERRO: Digite um número inteiro para a quantidade.\n')
 
 def validar_opcao(msg):
     while True:
@@ -27,9 +27,9 @@ def validar_opcao(msg):
             if 0 <= opcao <= 2:
                 return opcao
             else:
-                print('\nERRO: Opção inválida. Escolha entre uma das duas opções de atendimento.')
+                print('\nERRO: Opção inválida. Escolha entre uma das duas opções de atendimento.\n')
         except ValueError:
-            print('\nERRO: Digite entre 0 a 2 para selecionar uma opção.')
+            print('\nERRO: Digite entre 0 a 2 para selecionar uma opção.\n')
 
 def validar_entrada(msg):
     while True:
@@ -37,5 +37,5 @@ def validar_entrada(msg):
         if entrada in ('s', 'n'):
             return entrada
         else:
-            print('\nERRO: Digite "s" para sim e "n" para não.')
+            print('\nERRO: Digite "s" para sim e "n" para não.\n')
 

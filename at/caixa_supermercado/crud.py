@@ -17,15 +17,15 @@ def iniciar_atendimento(produtos, proximo_cliente_id):
                 produto[2] -= qtde_comprada
 
                 if qtde > qtde_comprada:
-                    print(f'A quantidade solicitada é maior que o estoque disponível.\n'
-                        f'O valor foi ajustado para a quantidade máxima em estoque, {qtde_comprada}.')
+                    print(f'\nA quantidade solicitada é maior que o estoque disponível.\n'
+                        f'O valor foi ajustado para a quantidade máxima em estoque, {qtde_comprada}.\n')
 
                 cliente.append([produto[0], produto[1], qtde_comprada, produto[3], valor_total])
         
         continuar = validar_entrada('\nDeseja continuar adicionando items?\n'
-                                    's - Continuar a Adicionar\n'
-                                    'n - Finalizar Atendimento\n'
-                                    'Resposta: ')
+                                    '\ns - Continuar a Adicionar\n'
+                                    '\nn - Finalizar Atendimento\n'
+                                    '\nResposta: ')
         if continuar != 's':
             break  
     finalizar_atendimento(cliente, proximo_cliente_id)
@@ -36,18 +36,18 @@ def finalizar_atendimento(cliente, proximo_cliente_id):
     tabela_resumida = []
     colunas_tabela = ['Item', 'Produto', 'Qtde', 'Preço', 'Total']
 
+    print('\n===========================================')
     print(f'\nCliente {proximo_cliente_id}\n')
     print(f'Data: {data_hora_atual()}\n')
 
     for i, produto in enumerate(cliente, start=1):
-        tabela_resumida.append([
-            i, produto[1], produto[2], produto[3], produto[4]
-        ])
+        tabela_resumida.append([i, produto[1], produto[2], produto[3], produto[4]])
  
     print(tabulate(tabela_resumida, headers=colunas_tabela))
 
     print(f'\nItens: {len(cliente)}')
     print(f'Total: {soma_total}\n')
+    print('===========================================\n')
 
 def conferir_estoque(produtos):
     sem_estoque = False
@@ -76,4 +76,4 @@ def fechar_caixa(clientes):
     
     print(tabulate(tabela_resumida, headers=['Cliente', 'Total']))
     
-    print(f'\n=== Total de Vendas: {total_de_vendas} ===\n')
+    print(f'\n==== Total de Vendas: {total_de_vendas} ====\n')
