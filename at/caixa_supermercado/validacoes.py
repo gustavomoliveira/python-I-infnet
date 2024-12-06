@@ -1,8 +1,8 @@
-def validar_id(msg):
+def validar_id(msg, produtos):
     while True:
         try:
             id = int(input(msg))
-            if 1 <= id <= 5:
+            if 1 <= id <= len(produtos):
                 return id
             else:
                 print('\nERRO: Produto não cadastrado. Escolha um id de 1 a 5.\n')

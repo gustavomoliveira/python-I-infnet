@@ -1,5 +1,4 @@
 import pathlib
-from tabulate import tabulate
 
 DIR_CUR = pathlib.Path(__file__).parent.resolve()
 ARQ = str(DIR_CUR) + '/produtos.csv'
@@ -14,9 +13,6 @@ def ler_produtos():
                 produtos.append([id, nome, qtde, preco])
     except Exception as ex:
         print(f'ERRO: Não foi possível ler a lista de produtos. Detalhes: {ex}')
-    print(f'\nCaixa aberto. Lista de produtos disponíveis:\n')
-    print(tabulate(produtos, headers=['Id', 'Nome', 'Qtde', 'Preço']))
-    print('--------------------------------\n')
     return produtos
 
 def gravar_produtos(produtos):
