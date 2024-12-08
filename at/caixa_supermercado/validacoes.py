@@ -5,7 +5,7 @@ def validar_id(msg, produtos):
             if 1 <= id <= len(produtos):
                 return id
             else:
-                print('\nERRO: Produto não cadastrado. Escolha um id de 1 a 5.\n')
+                print(f'\nERRO: Produto não cadastrado. Escolha um id de 1 a {len(produtos)}.\n')
         except ValueError:
             print('\nERRO: Digite um número inteiro para o id.\n')
 
@@ -27,7 +27,7 @@ def validar_opcao(msg):
             if 0 <= opcao <= 2:
                 return opcao
             else:
-                print('\nERRO: Opção inválida. Escolha entre uma das duas opções de atendimento.\n')
+                print('\nERRO: Opção inválida. Escolha uma das opções de atendimento.\n')
         except ValueError:
             print('\nERRO: Digite entre 0 a 2 para selecionar uma opção.\n')
 
@@ -38,4 +38,3 @@ def validar_entrada(msg):
             return entrada
         else:
             print('\nERRO: Digite "s" para sim e "n" para não.\n')
-

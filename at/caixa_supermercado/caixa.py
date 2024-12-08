@@ -18,7 +18,7 @@ def realizar_atendimento(produtos):
                 break
             case _:
                 print('ERRO: Opção inválida.')
-    #gravar_produtos(produtos)
+    gravar_produtos(produtos)
 
 produtos = ler_produtos()
 realizar_atendimento(produtos)
